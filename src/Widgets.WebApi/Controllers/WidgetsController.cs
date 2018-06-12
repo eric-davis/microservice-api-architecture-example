@@ -16,7 +16,7 @@
     /// <summary>
     /// The widgets controller.
     /// </summary>
-    [ApiController]
+    [Route("/")]
     public class WidgetsController : Controller
     {
         /// <summary>
@@ -27,13 +27,20 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="WidgetsController"/> class.
         /// </summary>
-        /// <param name="widgetsService">
-        /// The widgets service.
+        /// <param name="widgetService">
+        /// The widget service.
         /// </param>
-        public WidgetsController(IWidgetService widgetsService)
+        public WidgetsController(IWidgetService widgetService)
         {
-            Prevent.NullObject(widgetsService, nameof(widgetsService));
-            this.widgetService = widgetsService;
+            Prevent.NullObject(widgetService, nameof(widgetService));
+            this.widgetService = widgetService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllWidgets()
+        {
+            var widgets = await this.widgetService.GetAllWidgetsAsync();
+            return this.Json(widgets);
         }
 
         /// <summary>

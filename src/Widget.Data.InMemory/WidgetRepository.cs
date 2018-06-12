@@ -10,6 +10,7 @@
     using EDS.Widgets.Domain.Exceptions;
     using EDS.Widgets.Domain.Models;
     using EDS.Widgets.Domain.Services;
+    using EDS.Widgets.Domain.ValueTypes;
 
     /// <inheritdoc />
     /// <summary>
@@ -28,6 +29,22 @@
         static WidgetRepository()
         {
             WidgetDataStore = new ConcurrentDictionary<Guid, Widget>();
+        }
+
+        public WidgetRepository(bool seedData = false)
+        {
+            if (!seedData)
+            {
+                return;
+            }
+
+            var widgets = new List<Widget>
+                              {
+                                  Widget.Create("Widget #1", "This is widget #1", new Weight(100)),
+                                  Widget.Create("Widget #2", "This is widget #2", new Weight(200)),
+                              };
+
+            widgets.ForEach(widget => WidgetDataStore.TryAdd(widget.Id, widget));
         }
 
         /// <inheritdoc />
