@@ -1,5 +1,7 @@
 ﻿namespace EDS.Widgets.WebApi
 {
+    using EDS.Widgets.Domain.Services;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
@@ -35,6 +37,10 @@
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IWidgetRepository, Data.InMemory.WidgetRepository>(
+                x => new Data.InMemory.WidgetRepository(seedData: true));
+
+            services.AddTransient<IWidgetService, WidgetService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
