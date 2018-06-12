@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>EDS.Widgets.WebApi</AssemblyName>
+    <RootNamespace>EDS.Widgets.WebApi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Widget.Core\Core.csproj" />
+    <ProjectReference Include="..\Widget.Data.InMemory\Data.InMemory.csproj" />
+  </ItemGroup>
+
+</Project>

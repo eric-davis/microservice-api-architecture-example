@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>EDS.Widgets</RootNamespace>
+    <AssemblyName>Widgets.Core</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ArgSentry" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

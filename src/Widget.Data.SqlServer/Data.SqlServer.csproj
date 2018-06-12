@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>EDS.Widgets.Data.SqlServer</RootNamespace>
+    <AssemblyName>EDS.Widgets.Data.SqlServer</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Widget.Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>

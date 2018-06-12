@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>EDS.Widgets.Data.InMemory</RootNamespace>
+    <AssemblyName>EDS.Widgets.Data.InMemory</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Widget.Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>
