@@ -37,10 +37,10 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllWidgets()
+        public async Task<IActionResult> GetAllWidgetsAsync()
         {
             var widgets = await this.widgetService.GetAllWidgetsAsync();
-            return this.Json(widgets);
+            return this.Ok(widgets);
         }
 
         /// <summary>
@@ -53,11 +53,11 @@
         /// A <see cref="Task"/> that represents the asynchronous operation.
         /// The task result contains the <see cref="IActionResult"/>.
         /// </returns>
-        [HttpGet("/id:guid")]
+        [HttpGet("/{id:guid}")]
         public async Task<IActionResult> GetWidgetByIdAsync([FromRoute] Guid id)
         {
             var widget = await this.widgetService.GetWidgetByIdAsync(id);
-            return widget == null ? this.NotFound(id) : (IActionResult)this.Json(widget);
+            return widget == null ? this.NotFound(id) : (IActionResult)this.Ok(widget);
         }
 
         /// <summary>
